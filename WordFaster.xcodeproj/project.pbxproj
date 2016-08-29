@@ -7,15 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C68564F1D743BE7004E25CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C68564E1D743BE7004E25CF /* AVFoundation.framework */; };
 		2CA8F93B1D74240700A58FD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F93A1D74240700A58FD8 /* main.m */; };
 		2CA8F93E1D74240700A58FD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F93D1D74240700A58FD8 /* AppDelegate.m */; };
 		2CA8F9411D74240700A58FD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9401D74240700A58FD8 /* ViewController.m */; };
 		2CA8F9441D74240700A58FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8F9421D74240700A58FD8 /* Main.storyboard */; };
 		2CA8F9461D74240700A58FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8F9451D74240700A58FD8 /* Assets.xcassets */; };
 		2CA8F9491D74240700A58FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8F9471D74240700A58FD8 /* LaunchScreen.storyboard */; };
+		2CA8F9511D74259900A58FD8 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA8F9501D74259900A58FD8 /* JSONModel.framework */; };
+		2CA8F9531D7425B400A58FD8 /* FMDBManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA8F9521D7425B400A58FD8 /* FMDBManager.framework */; };
+		2CA8F9551D7425CE00A58FD8 /* FMDBManager.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CA8F9521D7425B400A58FD8 /* FMDBManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2CA8F9561D7425CE00A58FD8 /* JSONModel.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CA8F9501D74259900A58FD8 /* JSONModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2CA8F9591D7427AD00A58FD8 /* WordListVCTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9581D7427AD00A58FD8 /* WordListVCTL.m */; };
+		2CA8F95B1D7427C100A58FD8 /* WordListVCTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8F95A1D7427C100A58FD8 /* WordListVCTL.xib */; };
+		2CA8F95D1D7428BD00A58FD8 /* WordListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8F95C1D7428BD00A58FD8 /* WordListView.xib */; };
+		2CA8F9601D74291A00A58FD8 /* WordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F95F1D74291A00A58FD8 /* WordCell.m */; };
+		2CA8F9631D74295900A58FD8 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9621D74295900A58FD8 /* Word.m */; };
+		2CA8F9661D742A0200A58FD8 /* IDRNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9651D742A0200A58FD8 /* IDRNetworkManager.m */; };
+		2CA8F9691D742A0F00A58FD8 /* StoreMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9681D742A0F00A58FD8 /* StoreMgr.m */; };
+		2CA8F96C1D742A5600A58FD8 /* IDRLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CA8F9541D7425C500A58FD8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CA8F9551D7425CE00A58FD8 /* FMDBManager.framework in CopyFiles */,
+				2CA8F9561D7425CE00A58FD8 /* JSONModel.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2C68564E1D743BE7004E25CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2CA8F9361D74240700A58FD8 /* WordFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8F93A1D74240700A58FD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CA8F93C1D74240700A58FD8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +54,22 @@
 		2CA8F9451D74240700A58FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CA8F9481D74240700A58FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CA8F94A1D74240700A58FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CA8F9501D74259900A58FD8 /* JSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONModel.framework; sourceTree = "<group>"; };
+		2CA8F9521D7425B400A58FD8 /* FMDBManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FMDBManager.framework; sourceTree = "<group>"; };
+		2CA8F9571D7427AD00A58FD8 /* WordListVCTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListVCTL.h; sourceTree = "<group>"; };
+		2CA8F9581D7427AD00A58FD8 /* WordListVCTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordListVCTL.m; sourceTree = "<group>"; };
+		2CA8F95A1D7427C100A58FD8 /* WordListVCTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordListVCTL.xib; sourceTree = "<group>"; };
+		2CA8F95C1D7428BD00A58FD8 /* WordListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordListView.xib; sourceTree = "<group>"; };
+		2CA8F95E1D74291A00A58FD8 /* WordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCell.h; sourceTree = "<group>"; };
+		2CA8F95F1D74291A00A58FD8 /* WordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCell.m; sourceTree = "<group>"; };
+		2CA8F9611D74295900A58FD8 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		2CA8F9621D74295900A58FD8 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		2CA8F9641D742A0200A58FD8 /* IDRNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRNetworkManager.h; sourceTree = "<group>"; };
+		2CA8F9651D742A0200A58FD8 /* IDRNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRNetworkManager.m; sourceTree = "<group>"; };
+		2CA8F9671D742A0F00A58FD8 /* StoreMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMgr.h; sourceTree = "<group>"; };
+		2CA8F9681D742A0F00A58FD8 /* StoreMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMgr.m; sourceTree = "<group>"; };
+		2CA8F96A1D742A5600A58FD8 /* IDRLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRLogManager.h; sourceTree = "<group>"; };
+		2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRLogManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C68564F1D743BE7004E25CF /* AVFoundation.framework in Frameworks */,
+				2CA8F9511D74259900A58FD8 /* JSONModel.framework in Frameworks */,
+				2CA8F9531D7425B400A58FD8 /* FMDBManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +89,9 @@
 		2CA8F92D1D74240700A58FD8 = {
 			isa = PBXGroup;
 			children = (
+				2C68564E1D743BE7004E25CF /* AVFoundation.framework */,
+				2CA8F9521D7425B400A58FD8 /* FMDBManager.framework */,
+				2CA8F9501D74259900A58FD8 /* JSONModel.framework */,
 				2CA8F9381D74240700A58FD8 /* WordFaster */,
 				2CA8F9371D74240700A58FD8 /* Products */,
 			);
@@ -58,6 +108,12 @@
 		2CA8F9381D74240700A58FD8 /* WordFaster */ = {
 			isa = PBXGroup;
 			children = (
+				2CA8F96A1D742A5600A58FD8 /* IDRLogManager.h */,
+				2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */,
+				2CA8F9671D742A0F00A58FD8 /* StoreMgr.h */,
+				2CA8F9681D742A0F00A58FD8 /* StoreMgr.m */,
+				2CA8F9641D742A0200A58FD8 /* IDRNetworkManager.h */,
+				2CA8F9651D742A0200A58FD8 /* IDRNetworkManager.m */,
 				2CA8F93C1D74240700A58FD8 /* AppDelegate.h */,
 				2CA8F93D1D74240700A58FD8 /* AppDelegate.m */,
 				2CA8F93F1D74240700A58FD8 /* ViewController.h */,
@@ -67,6 +123,14 @@
 				2CA8F9471D74240700A58FD8 /* LaunchScreen.storyboard */,
 				2CA8F94A1D74240700A58FD8 /* Info.plist */,
 				2CA8F9391D74240700A58FD8 /* Supporting Files */,
+				2CA8F9571D7427AD00A58FD8 /* WordListVCTL.h */,
+				2CA8F9581D7427AD00A58FD8 /* WordListVCTL.m */,
+				2CA8F95A1D7427C100A58FD8 /* WordListVCTL.xib */,
+				2CA8F95C1D7428BD00A58FD8 /* WordListView.xib */,
+				2CA8F95E1D74291A00A58FD8 /* WordCell.h */,
+				2CA8F95F1D74291A00A58FD8 /* WordCell.m */,
+				2CA8F9611D74295900A58FD8 /* Word.h */,
+				2CA8F9621D74295900A58FD8 /* Word.m */,
 			);
 			path = WordFaster;
 			sourceTree = "<group>";
@@ -89,6 +153,7 @@
 				2CA8F9321D74240700A58FD8 /* Sources */,
 				2CA8F9331D74240700A58FD8 /* Frameworks */,
 				2CA8F9341D74240700A58FD8 /* Resources */,
+				2CA8F9541D7425C500A58FD8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -138,6 +203,8 @@
 			files = (
 				2CA8F9491D74240700A58FD8 /* LaunchScreen.storyboard in Resources */,
 				2CA8F9461D74240700A58FD8 /* Assets.xcassets in Resources */,
+				2CA8F95B1D7427C100A58FD8 /* WordListVCTL.xib in Resources */,
+				2CA8F95D1D7428BD00A58FD8 /* WordListView.xib in Resources */,
 				2CA8F9441D74240700A58FD8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA8F9691D742A0F00A58FD8 /* StoreMgr.m in Sources */,
+				2CA8F9661D742A0200A58FD8 /* IDRNetworkManager.m in Sources */,
 				2CA8F9411D74240700A58FD8 /* ViewController.m in Sources */,
+				2CA8F9631D74295900A58FD8 /* Word.m in Sources */,
 				2CA8F93E1D74240700A58FD8 /* AppDelegate.m in Sources */,
+				2CA8F9601D74291A00A58FD8 /* WordCell.m in Sources */,
+				2CA8F96C1D742A5600A58FD8 /* IDRLogManager.m in Sources */,
+				2CA8F9591D7427AD00A58FD8 /* WordListVCTL.m in Sources */,
 				2CA8F93B1D74240700A58FD8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +336,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WordFaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellfun.WordFaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,7 +352,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WordFaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellfun.WordFaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +383,7 @@
 				2CA8F94F1D74240700A58FD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
