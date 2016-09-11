@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Word.h"
 
 @interface StoreMgr : NSObject
 
@@ -14,7 +15,6 @@
 
 + (StoreMgr*)sharedInstance;
 
-- (void)saveLocation:(double)x andY:(double)y andZ:(double)z andTime:(double)time;
-
+- (void)saveWord:(Word*)word;
 
 @end

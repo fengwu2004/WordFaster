@@ -39,33 +39,34 @@
     
     NSString *documentDirectory = [paths objectAtIndex:0];
     
-    NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"MyDatabase.db"];
+    NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"words.db"];
     
     _db = [FMDatabase databaseWithPath:dbPath];
     
-    [_db open];
-    
-    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Walk (x float,y float,z float,t float)"];
-    
-    [_db close];
+    [self createTable];
     
     return self;
 }
 
-- (void)saveLocation:(double)x andY:(double)y andZ:(double)z andTime:(double)time {
+- (void)createTable {
     
-    if (_stopSave) {
+    [_db open];
+    
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS word_8_11 (word text PRIMARY KEY,detail text)"];
+    
+    [_db close];
+}
+
+- (void)saveWord:(Word*)word {
+    
+    if (![_db open]) {
         
         return;
     }
     
-    if (![_db open]) {
-        
-        return ;
-    }
+    NSString *json = word.toJSONString;
     
-    [_db executeUpdate:@"INSERT INTO Walk (x, y, z, t) VALUES (?,?,?,?)", [NSNumber numberWithDouble:x],
-     [NSNumber numberWithDouble:y], [NSNumber numberWithDouble:z], [NSNumber numberWithDouble:time]];
+    [_db executeUpdate:@"REPLACE INTO word_8_11 (word, detail) VALUES (?, ?)", word.en, json];
     
     [_db close];
 }

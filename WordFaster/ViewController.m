@@ -10,6 +10,7 @@
 #import "IDRNetworkManager.h"
 #import "WordListVCTL.h"
 #import "Word.h"
+#import "StoreMgr.h"
 
 @interface ViewController ()
 
@@ -82,6 +83,11 @@
 }
 
 - (void)finishServerCall {
+    
+    for (Word *word in _wordsDetail) {
+        
+        [[StoreMgr sharedInstance] saveWord:word];
+    }
     
     WordListVCTL *vctl = [[WordListVCTL alloc] init];
     
