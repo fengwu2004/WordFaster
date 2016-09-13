@@ -11,8 +11,8 @@
 
 @interface Word : JSONModel
 
-@property (nonatomic, copy) NSString *en;
-@property (nonatomic, copy) NSString *ch;
-@property (nonatomic, copy) NSString *read;
+@property (nonatomic, copy) NSString<Optional> *en;
+@property (nonatomic, copy) NSString<Optional> *ch;
+@property (nonatomic, copy) NSString<Optional> *read;
 
 @end

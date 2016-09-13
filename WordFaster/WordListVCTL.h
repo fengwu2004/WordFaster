@@ -10,7 +10,7 @@
 
 @interface WordListVCTL : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, retain) UITableView *ibTable;
+@property (nonatomic, retain) IBOutlet UITableView *ibTable;
 
 @property (nonatomic, copy) NSString *wordFileName;
 

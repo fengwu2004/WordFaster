@@ -11,12 +11,15 @@
 @implementation GCGiftCollectCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    [self setBackgroundColor:[UIColor redColor]];
+    
+    self.layer.cornerRadius = 5;
 }
 
 - (void)setWordFileName:(NSString *)wordFileName {
     
-    self.wordFileName = wordFileName;
+    _wordFileName = wordFileName;
     
     [_ibLabel setText:wordFileName];
 }

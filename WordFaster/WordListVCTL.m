@@ -61,6 +61,8 @@
     
     _downloadIndex = 0;
     
+    _wordsDetail = [[NSMutableArray alloc] init];
+    
     [self serverCall];
 }
 

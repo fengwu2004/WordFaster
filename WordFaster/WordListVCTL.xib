@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordListVCTL">
             <connections>
+                <outlet property="ibTable" destination="1iK-eH-jWI" id="R3N-Sc-2o2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bMs-gs-fYZ"/>
             </connections>
         </placeholder>

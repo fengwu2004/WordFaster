@@ -79,6 +79,11 @@
 
 - (BOOL)checkWordlistExist:(NSString*)wordlistName {
     
+    if (![_db open]) {
+        
+        return NO;
+    }
+    
     NSString *sql = [NSString stringWithFormat:@"SELECT time FROM wordlist WHERE wordFile='%@'", wordlistName];
     
     FMResultSet *results = [_db executeQuery:sql];
@@ -102,7 +107,11 @@
         return;
     }
     
-    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS %@ (word text PRIMARY KEY,detail text)", tableName];
+    [_db executeUpdate:@"REPLACE INTO wordlist (wordFile, time) VALUES (?, ?)", tableName, [NSNumber numberWithInteger:1]];
+    
+    NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (word text PRIMARY KEY, detail text)", tableName];
+    
+    [_db executeUpdate:sql];
     
     [_db beginTransaction];
     
