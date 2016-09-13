@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C68564F1D743BE7004E25CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C68564E1D743BE7004E25CF /* AVFoundation.framework */; };
+		2C8B06511D87AA0000118D3E /* GCGiftCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B064F1D87AA0000118D3E /* GCGiftCollectCell.m */; };
+		2C8B06521D87AA0000118D3E /* GCGiftCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B06501D87AA0000118D3E /* GCGiftCollectCell.xib */; };
 		2CA8F93B1D74240700A58FD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F93A1D74240700A58FD8 /* main.m */; };
 		2CA8F93E1D74240700A58FD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F93D1D74240700A58FD8 /* AppDelegate.m */; };
 		2CA8F9411D74240700A58FD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9401D74240700A58FD8 /* ViewController.m */; };
@@ -39,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		2C68564E1D743BE7004E25CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2C8B064E1D87AA0000118D3E /* GCGiftCollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCGiftCollectCell.h; sourceTree = "<group>"; };
+		2C8B064F1D87AA0000118D3E /* GCGiftCollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCGiftCollectCell.m; sourceTree = "<group>"; };
+		2C8B06501D87AA0000118D3E /* GCGiftCollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCGiftCollectCell.xib; sourceTree = "<group>"; };
 		2CA8F9361D74240700A58FD8 /* WordFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8F93A1D74240700A58FD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CA8F93C1D74240700A58FD8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +108,9 @@
 		2CA8F9381D74240700A58FD8 /* WordFaster */ = {
 			isa = PBXGroup;
 			children = (
+				2C8B064E1D87AA0000118D3E /* GCGiftCollectCell.h */,
+				2C8B064F1D87AA0000118D3E /* GCGiftCollectCell.m */,
+				2C8B06501D87AA0000118D3E /* GCGiftCollectCell.xib */,
 				2CA8F96A1D742A5600A58FD8 /* IDRLogManager.h */,
 				2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */,
 				2CA8F9671D742A0F00A58FD8 /* StoreMgr.h */,
@@ -220,6 +228,7 @@
 				2CA8F9461D74240700A58FD8 /* Assets.xcassets in Resources */,
 				2CA8F95B1D7427C100A58FD8 /* WordListVCTL.xib in Resources */,
 				2CA8F95D1D7428BD00A58FD8 /* WordListView.xib in Resources */,
+				2C8B06521D87AA0000118D3E /* GCGiftCollectCell.xib in Resources */,
 				2CA8F9441D74240700A58FD8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +290,7 @@
 			files = (
 				2CA8F9691D742A0F00A58FD8 /* StoreMgr.m in Sources */,
 				2CA8F9661D742A0200A58FD8 /* IDRNetworkManager.m in Sources */,
+				2C8B06511D87AA0000118D3E /* GCGiftCollectCell.m in Sources */,
 				2CA8F9411D74240700A58FD8 /* ViewController.m in Sources */,
 				2CA8F9631D74295900A58FD8 /* Word.m in Sources */,
 				2CA8F93E1D74240700A58FD8 /* AppDelegate.m in Sources */,

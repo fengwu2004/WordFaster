@@ -10,13 +10,13 @@
 #import "IDRNetworkManager.h"
 #import "WordListVCTL.h"
 #import "Word.h"
+#import "GCGiftCollectCell.h"
 #import "StoreMgr.h"
 
-@interface ViewController ()
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
-@property (nonatomic, retain) NSMutableDictionary *wordDic;
-@property (nonatomic, retain) NSMutableArray *wordsDetail;
-@property (nonatomic, assign) NSInteger nIndex;
+@property (nonatomic, retain) NSMutableSet *wordFiles;
+@property (nonatomic, retain) NSArray *wordFilesArray;
 
 @end
 
@@ -42,121 +42,64 @@
 
 - (void)loadWords {
     
-    if (!_wordsDetail) {
-        
-        _wordsDetail = [[NSMutableArray alloc] init];
-    }
-    
     NSString *wordsPath = [self wordPath];
     
     NSArray *fileList = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:wordsPath error:nil];
     
-    NSMutableArray *needUpdateList = [[NSMutableArray alloc] init];
-    
     for (NSString *fileName in fileList) {
         
-        if (![self checkExist:fileName]) {
-            
-            [needUpdateList addObject:fileName];
-        }
+        [_wordFiles addObject:fileName];
     }
     
-    [self loadWordList:needUpdateList];
+    _wordFilesArray = [[NSArray alloc] initWithArray:_wordFiles.allObjects];
 }
 
-- (BOOL)checkExist:(NSString*)listName {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return YES;
+    return _wordFilesArray.count;
 }
 
-- (void)loadWordFromFile:(NSString*)file {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
-    NSString *str = [NSString stringWithFormat:@"%@/%@", [self wordPath], file];
-    
-    NSString *content = [NSString stringWithContentsOfFile:str encoding:NSUTF8StringEncoding error:nil];
-    
-    NSArray *array = [content componentsSeparatedByString:@"\r"];
-    
-    NSMutableArray *words = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = 0; i < array.count; ++i) {
-        
-        [words addObject:array[i]];
-    }
-    
-    [_wordDic setObject:words forKey:file];
+    return 2;
 }
 
-- (void)loadWordList:(NSArray*)wordlist {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    for (NSString *wordListName in wordlist) {
-        
-        [self loadWordFromFile:wordListName];
-    }
-}
-
-- (void)serverCall {
+    NSInteger nIndex = indexPath.row + indexPath.section * 10;
     
-    if (_nIndex >= _words.count) {
-        
-        [self finishServerCall];
-        
-        return;
-    }
-    
-    NSString *word = _words[_nIndex];
-    
-    NSString *url = [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=wordfaster&key=2006979987&type=data&doctype=json&version=1.1&q=%@", word];
-    
-    [[IDRNetworkManager sharedInstance] asyncServerCall:url parameters:nil success:^(NSDictionary *response) {
-        
-        [self saveWordDetail:response];
-        
-        ++_nIndex;
-        
-        [self serverCall];
-    }];
-}
-
-- (void)finishServerCall {
-    
-    for (Word *word in _wordsDetail) {
-        
-        [[StoreMgr sharedInstance] saveWord:word];
-    }
+    NSString *value = [_wordFilesArray objectAtIndex:nIndex];
     
     WordListVCTL *vctl = [[WordListVCTL alloc] init];
     
-    vctl.words = [_wordsDetail copy];
+    vctl.wordFileName = value;
     
     [self.navigationController pushViewController:vctl animated:YES];
 }
 
-- (void)saveWordDetail:(NSDictionary*)data {
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *basic = data[@"basic"];
-    
-    Word *word = [[Word alloc] init];
-    
-    word.en = [data objectForKey:@"query"];
-    
-    NSArray *explains = [basic objectForKey:@"explains"];
-    
-    if (explains.count > 0) {
-        
-        word.ch = [explains firstObject];
-    }
-    
-    word.read = [basic objectForKey:@"us-phonetic"];
-    
-    [_wordsDetail addObject:word];
+    return YES;
 }
 
-- (IBAction)start:(id)sender {
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    _nIndex = 0;
+    return YES;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self serverCall];
+    static NSString * identifier = @"GCGiftCollectCell";
+    
+    GCGiftCollectCell *cell = (GCGiftCollectCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    NSInteger nIndex = indexPath.row + indexPath.section * 10;
+    
+    NSString *value = [_wordFilesArray objectAtIndex:nIndex];
+    
+    [cell setWordFileName:value];
+    
+    return cell;
 }
 
 @end

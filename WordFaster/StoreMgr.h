@@ -15,6 +15,10 @@
 
 + (StoreMgr*)sharedInstance;
 
-- (void)saveWord:(Word*)word;
+- (void)saveWords:(NSArray*)words name:(NSString*)tableName;
+
+- (BOOL)checkWordlistExist:(NSString*)wordlistName;
+
+- (NSArray*)loadWords:(NSString*)file;
 
 @end

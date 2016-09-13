@@ -52,12 +52,71 @@
     
     [_db open];
     
-    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS word_8_11 (word text PRIMARY KEY,detail text)"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS wordlist (wordFile text PRIMARY KEY, time integer)"];
     
     [_db close];
 }
 
-- (void)saveWord:(Word*)word {
+- (NSArray*)loadWords:(NSString*)file {
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT detail FROM %@", file];
+    
+    FMResultSet *results = [_db executeQuery:sql];
+    
+    NSMutableArray *details = [[NSMutableArray alloc] init];
+    
+    while ([results next]) {
+        
+        NSString *detail = results[@"detail"];
+        
+        Word *word = [[Word alloc] initWithString:detail error:nil];
+        
+        [details addObject:word];
+    }
+    
+    return [details copy];
+}
+
+- (BOOL)checkWordlistExist:(NSString*)wordlistName {
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT time FROM wordlist WHERE wordFile='%@'", wordlistName];
+    
+    FMResultSet *results = [_db executeQuery:sql];
+    
+    BOOL exist = NO;
+    
+    while ([results next]) {
+        
+        exist = YES;
+        
+        break;
+    }
+    
+    return exist;
+}
+
+- (void)saveWords:(NSArray*)words name:(NSString*)tableName {
+    
+    if (![_db open]) {
+        
+        return;
+    }
+    
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS %@ (word text PRIMARY KEY,detail text)", tableName];
+    
+    [_db beginTransaction];
+    
+    for (Word *word in words) {
+        
+        [self saveWord:word tableName:tableName];
+    }
+    
+    [_db commit];
+    
+    [_db close];
+}
+
+- (void)saveWord:(Word*)word tableName:(NSString*)tableName {
     
     if (![_db open]) {
         
@@ -66,9 +125,9 @@
     
     NSString *json = word.toJSONString;
     
-    [_db executeUpdate:@"REPLACE INTO word_8_11 (word, detail) VALUES (?, ?)", word.en, json];
+    NSString *sql = [NSString stringWithFormat:@"REPLACE INTO %@ (word, detail) VALUES (?, ?)", tableName];
     
-    [_db close];
+    [_db executeUpdate:sql, word.en, json];
 }
 
 
