@@ -14,7 +14,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, retain) NSMutableArray *words;
+@property (nonatomic, retain) NSMutableDictionary *wordDic;
 @property (nonatomic, retain) NSMutableArray *wordsDetail;
 @property (nonatomic, assign) NSInteger nIndex;
 
@@ -29,33 +29,69 @@
     [self loadWords];
 }
 
+- (NSString*)wordPath {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    NSString *path = [documentDirectory stringByAppendingPathComponent:@"word"];
+    
+    return path;
+}
+
 - (void)loadWords {
-    
-    if (!_words) {
-        
-        _words = [[NSMutableArray alloc] init];
-    }
-    
-    [_words removeAllObjects];
     
     if (!_wordsDetail) {
         
         _wordsDetail = [[NSMutableArray alloc] init];
     }
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *wordsPath = [self wordPath];
     
-    NSString *documentDirectory = [paths objectAtIndex:0];
-   
-    NSString *filePath = [documentDirectory stringByAppendingPathComponent:@"words.txt"];
+    NSArray *fileList = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:wordsPath error:nil];
     
-    NSString *str = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *needUpdateList = [[NSMutableArray alloc] init];
     
-    NSArray *array = [str componentsSeparatedByString:@"\r"];
+    for (NSString *fileName in fileList) {
+        
+        if (![self checkExist:fileName]) {
+            
+            [needUpdateList addObject:fileName];
+        }
+    }
+    
+    [self loadWordList:needUpdateList];
+}
+
+- (BOOL)checkExist:(NSString*)listName {
+    
+    return YES;
+}
+
+- (void)loadWordFromFile:(NSString*)file {
+    
+    NSString *str = [NSString stringWithFormat:@"%@/%@", [self wordPath], file];
+    
+    NSString *content = [NSString stringWithContentsOfFile:str encoding:NSUTF8StringEncoding error:nil];
+    
+    NSArray *array = [content componentsSeparatedByString:@"\r"];
+    
+    NSMutableArray *words = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < array.count; ++i) {
         
-        [_words addObject:array[i]];
+        [words addObject:array[i]];
+    }
+    
+    [_wordDic setObject:words forKey:file];
+}
+
+- (void)loadWordList:(NSArray*)wordlist {
+    
+    for (NSString *wordListName in wordlist) {
+        
+        [self loadWordFromFile:wordListName];
     }
 }
 

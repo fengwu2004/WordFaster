@@ -7,7 +7,7 @@
 //
 
 #import "StoreMgr.h"
-#import <FMDBManager/FMDBManager.h>
+#import <FMDB/FMDB.h>
 
 @interface StoreMgr()
 

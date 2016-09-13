@@ -1,0 +1,17 @@
+PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - JSONModel (1.4.0)
+
+DEPENDENCIES:
+  - FMDB
+  - JSONModel
+
+SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  JSONModel: 58fe3f8c29ff95ed94e7ee7dde87e807f5da5371
+
+PODFILE CHECKSUM: dbeb48c855fc07e6f5a9840379d7ba67779d8b8c
+
+COCOAPODS: 1.0.1

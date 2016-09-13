@@ -1,6 +1,0 @@
-framework module FMDBManager {
-  umbrella header "FMDBManager.h"
-
-  export *
-  module * { export * }
-}
