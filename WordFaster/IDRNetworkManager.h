@@ -17,7 +17,7 @@
 
 - (void)asyncServerCall:(NSString *)urlString parameters:(NSData *)parameters;
 
-- (void)asyncServerCall:(NSString *)urlString timeout:(NSInteger)timeoutInterval parameters:(NSData *)parameters
+- (void)asyncServerCall:(NSString *)urlString parameters:(NSData *)parameters
                 success:(void (^)(NSDictionary *responseData))success
                 failure:(void (^)(NSDictionary *responseData))failure;
 @end

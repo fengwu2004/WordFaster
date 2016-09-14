@@ -58,7 +58,7 @@
     
     layout.minimumInteritemSpacing = 5;
     
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     layout.sectionInset = UIEdgeInsetsMake(10, 15, 10, 15);
     
@@ -76,6 +76,11 @@
     NSString *path = [documentDirectory stringByAppendingPathComponent:@"word"];
     
     return path;
+}
+
+- (int)f {
+    
+    return rand();
 }
 
 - (void)loadWords {
@@ -116,6 +121,8 @@
     NSString *value = [_wordFilesArray objectAtIndex:nIndex];
     
     WordListVCTL *vctl = [[WordListVCTL alloc] init];
+    
+    value = [NSString stringWithFormat:@"word_%@", value];
     
     vctl.wordFileName = value;
     

@@ -55,10 +55,10 @@ static IDRNetworkManager *_instance = nil;
 - (void)asyncServerCall:(NSString *)urlString parameters:(NSData *)parameters
                 success:(void (^)(NSDictionary *responseData))success {
     
-    [self asyncServerCall:urlString timeout:20 parameters:parameters success:success failure:nil];
+    [self asyncServerCall:urlString parameters:parameters success:success failure:nil];
 }
 
-- (void)asyncServerCall:(NSString *)urlString timeout:(NSInteger)timeoutInterval parameters:(NSData *)parameters
+- (void)asyncServerCall:(NSString *)urlString parameters:(NSData *)parameters
                 success:(void (^)(NSDictionary *responseData))success
                 failure:(void (^)(NSDictionary *responseData))failure {
     
@@ -69,7 +69,7 @@ static IDRNetworkManager *_instance = nil;
     
     NSURL *url = [NSURL URLWithString:urlString];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
 
     if (parameters) {
         
@@ -77,8 +77,6 @@ static IDRNetworkManager *_instance = nil;
         
         [request setHTTPMethod:@"POST"];
     }
-    
-    [request setTimeoutInterval:timeoutInterval];
     
     [NSURLConnection sendAsynchronousRequest:request queue:_queue
        completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

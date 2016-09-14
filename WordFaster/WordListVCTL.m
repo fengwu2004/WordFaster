@@ -29,6 +29,8 @@
     
     [super viewDidLoad];
     
+    [_ibTable setAllowsSelection:NO];
+    
     if ([self checkExist]) {
         
         [self loadFromStore];
@@ -38,7 +40,7 @@
         [self loadFromNet];
     }
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"YF_Collect_UpLoad.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onListenEn)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"startPress.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onListenEn)];
 }
 
 - (BOOL)checkExist {
@@ -84,12 +86,22 @@
     
     NSString *word = _words[_downloadIndex];
     
+    NSLog(@"%d", (int)_downloadIndex);
+    
+    NSLog(@"%@", word);
+    
     NSString *url = [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=wordfaster&key=2006979987&type=data&doctype=json&version=1.1&q=%@", word];
     
     [[IDRNetworkManager sharedInstance] asyncServerCall:url parameters:nil success:^(NSDictionary *response) {
         
         [self saveWordDetail:response];
         
+        ++_downloadIndex;
+        
+        [self serverCall];
+        
+    }failure:^(NSDictionary *responseData) {
+     
         ++_downloadIndex;
         
         [self serverCall];
