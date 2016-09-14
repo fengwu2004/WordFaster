@@ -20,6 +20,7 @@
 
 @property (nonatomic, retain) NSMutableArray *words;
 @property (nonatomic, retain) NSMutableArray *wordsDetail;
+@property (nonatomic, retain) IBOutlet UIView *coverView;
 
 @end
 
@@ -71,6 +72,8 @@
 - (void)onListenEn {
     
     _nIndex = 0;
+    
+    [_coverView setHidden:NO];
     
     [self listenEn];
 }
@@ -218,6 +221,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
+}
+
+- (IBAction)onHideCover:(id)sender {
+    
+    [_coverView setHidden:YES];
 }
 
 - (void)listenEn {
