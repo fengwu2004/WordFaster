@@ -12,6 +12,7 @@
 #import "IDRNetworkManager.h"
 #import "StoreMgr.h"
 #import <AVFoundation/AVFoundation.h>
+#import "WordFaster-swift.h"
 
 @interface WordListVCTL()
 
@@ -21,6 +22,7 @@
 @property (nonatomic, retain) NSMutableArray *words;
 @property (nonatomic, retain) NSMutableArray *wordsDetail;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
+@property (nonatomic, retain) ReadMgr *mgr;
 
 @end
 
@@ -71,11 +73,13 @@
 
 - (void)onListenEn {
     
-    _nIndex = 0;
-    
     [_coverView setHidden:NO];
     
-    [self listenEn];
+    _mgr = nil;
+
+    _mgr = [[ReadMgr alloc] initWithWords:_wordsDetail];
+    
+    [_mgr startRead];
 }
 
 - (void)serverCall {
