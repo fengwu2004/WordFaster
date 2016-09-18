@@ -14,5 +14,6 @@
 @property (nonatomic, copy) NSString<Optional> *en;
 @property (nonatomic, copy) NSString<Optional> *ch;
 @property (nonatomic, copy) NSString<Optional> *read;
+@property (nonatomic, retain) NSNumber<Optional> *known;
 
 @end

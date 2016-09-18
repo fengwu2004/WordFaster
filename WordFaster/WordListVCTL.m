@@ -16,13 +16,17 @@
 
 @interface WordListVCTL()
 
+@property (nonatomic, assign) BOOL showUnKnown;
+@property (nonatomic, assign) BOOL showTrans;
 @property (nonatomic, assign) NSInteger nIndex;
 @property (nonatomic, assign) NSInteger downloadIndex;
 
 @property (nonatomic, retain) NSMutableArray *words;
 @property (nonatomic, retain) NSMutableArray *wordsDetail;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
-@property (nonatomic, retain) ReadMgr *mgr;
+@property (nonatomic, retain) ReadMgr *readMgr;
+@property (nonatomic, retain) IBOutlet UIButton *ibBtnShowTrans;
+@property (nonatomic, retain) IBOutlet UIButton *ibBtnShowUnknown;
 
 @end
 
@@ -31,6 +35,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    _showTrans = YES;
     
     [_ibTable setAllowsSelection:NO];
     
@@ -44,6 +50,14 @@
     }
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"startPress.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onListenEn)];
+    
+    NSString *title = _showTrans ? @"不显示释意" : @"显示释意";
+    
+    [_ibBtnShowTrans setTitle:title forState:UIControlStateNormal];
+    
+    title = _showUnKnown ? @"显示所有" : @"仅显示未知";
+    
+    [_ibBtnShowUnknown setTitle:title forState:UIControlStateNormal];
 }
 
 - (BOOL)checkExist {
@@ -55,7 +69,22 @@
     
     NSArray *dbData = [[StoreMgr sharedInstance] loadWords:[NSString stringWithFormat:@"word_%@", _wordFileName]];
     
-    _wordsDetail = [[NSMutableArray alloc] initWithArray:dbData];
+    if (_showUnKnown) {
+        
+        _wordsDetail = [[NSMutableArray alloc] initWithArray:dbData];
+    }
+    else {
+        
+        _wordsDetail = [[NSMutableArray alloc] init];
+        
+        for (Word *word in dbData) {
+            
+            if (![word.known isEqualToNumber:@1]) {
+                
+                [_wordsDetail addObject:word];
+            }
+        }
+    }
     
     [_ibTable reloadData];
 }
@@ -75,11 +104,11 @@
     
     [_coverView setHidden:NO];
     
-    _mgr = nil;
+    _readMgr = nil;
 
-    _mgr = [[ReadMgr alloc] initWithWords:_wordsDetail];
+    _readMgr = [[ReadMgr alloc] initWithWords:_wordsDetail];
     
-    [_mgr startRead];
+    [_readMgr startRead];
 }
 
 - (void)serverCall {
@@ -186,13 +215,26 @@
     return _wordsDetail.count;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Word *word = [_wordsDetail objectAtIndex:indexPath.row];
+    
+    word.known = @1;
+    
+    [[StoreMgr sharedInstance] updateWord:word tableName:[NSString stringWithFormat:@"word_%@", _wordFileName]];
+    
+    [_wordsDetail removeObject:word];
+    
+    [_ibTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WordCell *cell = (WordCell *)[self cellByClassName:@"WordCell" inNib:@"WordListView" forTableView:tableView];
     
     Word *word = [_wordsDetail objectAtIndex:indexPath.row];
     
-    [cell setWord:word];
+    [cell setWord:word translate:_showTrans];
     
     return cell;
 }
@@ -256,6 +298,33 @@
     ++_nIndex;
     
     [self performSelector:@selector(listenEn) withObject:nil afterDelay:3];
+}
+
+- (IBAction)onShowUnknown:(id)sender {
+    
+    _showUnKnown = !_showUnKnown;
+    
+    NSString *title = _showUnKnown ? @"仅显示未知" : @"显示所有";
+    
+    [_ibBtnShowUnknown setTitle:title forState:UIControlStateNormal];
+    
+    [self loadFromStore];
+}
+
+- (IBAction)onShowChinese:(id)sender {
+    
+    _showTrans = !_showTrans;
+    
+    NSString *title = _showTrans ? @"不显示释意" : @"显示释意";
+    
+    [_ibBtnShowTrans setTitle:title forState:UIControlStateNormal];
+    
+    [_ibTable reloadData];
+}
+
+- (void)dealloc {
+    
+    [_readMgr stopWithClear:YES];
 }
 
 @end

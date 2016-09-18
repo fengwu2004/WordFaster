@@ -125,6 +125,22 @@
     [_db close];
 }
 
+- (void)updateWord:(Word*)word tableName:(NSString*)tableName {
+    
+    if (![_db open]) {
+        
+        return;
+    }
+    
+    NSString *json = word.toJSONString;
+    
+    NSString *transJson = [json stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+    
+    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET detail='%@' WHERE word='%@'", tableName, transJson, word.en];
+    
+    [_db executeUpdate:sql, word.en, json];
+}
+
 - (void)saveWord:(Word*)word tableName:(NSString*)tableName {
     
     if (![_db open]) {

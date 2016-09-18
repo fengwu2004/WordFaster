@@ -21,4 +21,8 @@
 
 - (NSArray*)loadWords:(NSString*)file;
 
+- (void)saveWord:(Word*)word tableName:(NSString*)tableName;
+
+- (void)updateWord:(Word*)word tableName:(NSString*)tableName;
+
 @end

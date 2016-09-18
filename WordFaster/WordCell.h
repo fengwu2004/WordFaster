@@ -17,6 +17,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *ibCh;
 
-@property (nonatomic, retain) Word *word;
+- (void)setWord:(Word *)word translate:(BOOL)showTrans;
 
 @end

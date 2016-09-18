@@ -13,16 +13,20 @@ class ReadMgr: NSObject {
     
     var mWords:[WordFaster.Word]
     
+    var mIndex:Int
+    
+    var mSpeechSynthesizer:AVSpeechSynthesizer
+    
     init(words:[WordFaster.Word]) {
         
         mWords = words
         
         mIndex = 0
         
+        mSpeechSynthesizer = AVSpeechSynthesizer()
+        
         super.init()
     }
-    
-    var mIndex:Int
     
     func startRead() {
         
@@ -40,8 +44,6 @@ class ReadMgr: NSObject {
         
         let word = mWords[mIndex]
         
-        let speechSynthesizer = AVSpeechSynthesizer()
-        
         let voice = AVSpeechSynthesisVoice(identifier: "en-US")
         
         let utterance = AVSpeechUtterance(string: word.en)
@@ -50,10 +52,27 @@ class ReadMgr: NSObject {
         
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         
-        speechSynthesizer.speakUtterance(utterance)
+        mSpeechSynthesizer.speakUtterance(utterance)
         
         mIndex = mIndex + 1
         
         performSelector(#selector(readWord), withObject: nil, afterDelay: 3)
+    }
+    
+    func stop(Clear clear:Bool) {
+        
+        mIndex = 0;
+        
+        if clear {
+            
+            mWords.removeAll()
+        }
+        
+        mSpeechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Word)
+    }
+    
+    func pause() {
+        
+        mSpeechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
     }
 }

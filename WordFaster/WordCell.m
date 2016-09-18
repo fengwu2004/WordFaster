@@ -8,6 +8,12 @@
 
 #import "WordCell.h"
 
+@interface WordCell()
+
+@property (nonatomic, retain) Word *word;
+
+@end
+
 @implementation WordCell
 
 - (void)awakeFromNib {
@@ -16,7 +22,7 @@
     // Initialization code
 }
 
-- (void)setWord:(Word *)word {
+- (void)setWord:(Word *)word translate:(BOOL)showTrans {
     
     _word = word;
     
@@ -39,7 +45,14 @@
         [_ibRead setText:@""];
     }
     
-    [_ibCh setText:_word.ch];
+    if (showTrans) {
+        
+        [_ibCh setText:_word.ch];
+    }
+    else {
+        
+        [_ibCh setText:@""];
+    }
 }
 
 @end

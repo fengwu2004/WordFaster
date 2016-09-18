@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordListVCTL">
             <connections>
                 <outlet property="coverView" destination="nAX-fQ-xms" id="1ue-Ub-vqD"/>
+                <outlet property="ibBtnShowTrans" destination="NVH-HU-KHA" id="wx6-v3-Ic2"/>
+                <outlet property="ibBtnShowUnknown" destination="kh5-FO-iPu" id="DjL-Vf-3xa"/>
                 <outlet property="ibTable" destination="1iK-eH-jWI" id="R3N-Sc-2o2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bMs-gs-fYZ"/>
             </connections>
@@ -18,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-eH-jWI">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="C83-dG-nhJ"/>
@@ -33,19 +35,45 @@
                         <outletCollection property="gestureRecognizers" destination="2OP-As-ail" appends="YES" id="wy1-yB-tKG"/>
                     </connections>
                 </view>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBJ-0w-rTS">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVH-HU-KHA">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                            <state key="normal" title="ALL"/>
+                            <connections>
+                                <action selector="onShowChinese:" destination="-1" eventType="touchUpInside" id="z2k-fZ-Bvo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh5-FO-iPu">
+                            <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                            <state key="normal" title="UnKnown"/>
+                            <connections>
+                                <action selector="onShowUnknown:" destination="-1" eventType="touchUpInside" id="1y7-2w-UKF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="kh5-FO-iPu" firstAttribute="width" secondItem="NVH-HU-KHA" secondAttribute="width" id="6cg-22-JPZ"/>
+                        <constraint firstAttribute="height" constant="50" id="Sap-Jz-3KX"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="WBJ-0w-rTS" secondAttribute="bottom" id="8OH-Jy-HQV"/>
                 <constraint firstAttribute="trailing" secondItem="1iK-eH-jWI" secondAttribute="trailing" id="GNg-Ph-Pig"/>
                 <constraint firstAttribute="bottom" secondItem="nAX-fQ-xms" secondAttribute="bottom" id="GRv-Dn-tXQ"/>
                 <constraint firstItem="1iK-eH-jWI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LYO-QX-Zcm"/>
-                <constraint firstAttribute="bottom" secondItem="1iK-eH-jWI" secondAttribute="bottom" id="Su2-1W-zug"/>
+                <constraint firstItem="WBJ-0w-rTS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QnV-eA-Lj1"/>
+                <constraint firstAttribute="bottom" secondItem="1iK-eH-jWI" secondAttribute="bottom" constant="50" id="Su2-1W-zug"/>
                 <constraint firstItem="nAX-fQ-xms" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y0W-Ue-cxq"/>
+                <constraint firstAttribute="trailing" secondItem="WBJ-0w-rTS" secondAttribute="trailing" id="evK-Ga-GOr"/>
                 <constraint firstAttribute="trailing" secondItem="nAX-fQ-xms" secondAttribute="trailing" id="nKk-MZ-C1z"/>
                 <constraint firstItem="1iK-eH-jWI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wAG-J3-Xs7"/>
                 <constraint firstItem="nAX-fQ-xms" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zkb-Cm-ly1"/>
             </constraints>
-            <point key="canvasLocation" x="155" y="300"/>
+            <point key="canvasLocation" x="-106" y="197"/>
         </view>
         <tapGestureRecognizer id="2OP-As-ail">
             <connections>
