@@ -122,7 +122,7 @@
     
     WordListVCTL *vctl = [[WordListVCTL alloc] init];
     
-    value = [NSString stringWithFormat:@"word_%@", value];
+//    value = [NSString stringWithFormat:@"word_%@", value];
     
     vctl.wordFileName = value;
     

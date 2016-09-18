@@ -46,7 +46,7 @@ class ReadMgr: NSObject {
         
         utterance.voice = voice
         
-        utterance.rate = AVSpeechUtteranceMinimumSpeechRate
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         
         speechSynthesizer.speakUtterance(utterance)
         

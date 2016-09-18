@@ -48,12 +48,12 @@
 
 - (BOOL)checkExist {
     
-    return [[StoreMgr sharedInstance] checkWordlistExist:_wordFileName];
+    return [[StoreMgr sharedInstance] checkWordlistExist:[NSString stringWithFormat:@"word_%@", _wordFileName]];
 }
 
 - (void)loadFromStore {
     
-    NSArray *dbData = [[StoreMgr sharedInstance] loadWords:_wordFileName];
+    NSArray *dbData = [[StoreMgr sharedInstance] loadWords:[NSString stringWithFormat:@"word_%@", _wordFileName]];
     
     _wordsDetail = [[NSMutableArray alloc] initWithArray:dbData];
     
@@ -117,7 +117,7 @@
 
 - (void)finishServerCall {
     
-    [[StoreMgr sharedInstance] saveWords:_wordsDetail name:_wordFileName];
+    [[StoreMgr sharedInstance] saveWords:_wordsDetail name:[NSString stringWithFormat:@"word_%@", _wordFileName]];
     
     [_ibTable reloadData];
 }
