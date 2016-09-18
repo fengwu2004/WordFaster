@@ -18,6 +18,8 @@ class ReadMgr: NSObject {
         mWords = words
         
         mIndex = 0
+        
+        super.init()
     }
     
     var mIndex:Int

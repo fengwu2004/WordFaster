@@ -139,5 +139,4 @@
     [_db executeUpdate:sql, word.en, json];
 }
 
-
 @end

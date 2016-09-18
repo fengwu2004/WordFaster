@@ -74,7 +74,7 @@
 		2CA8F96A1D742A5600A58FD8 /* IDRLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRLogManager.h; sourceTree = "<group>"; };
 		2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRLogManager.m; sourceTree = "<group>"; };
 		2CE8FEB91D893B2300FED356 /* WordFaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WordFaster-Bridging-Header.h"; sourceTree = "<group>"; };
-		2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMgr.swift; sourceTree = "<group>"; };
+		2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadMgr.swift; path = ../ReadMgr.swift; sourceTree = "<group>"; };
 		A99600EA75ED18B5C7C417D2 /* libPods-WordFaster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordFaster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DE4A610DDB886D47368C31 /* Pods-WordFaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFaster/Pods-WordFaster.release.xcconfig"; sourceTree = "<group>"; };
 		DF0B9815B6157B42A27D2183 /* Pods-WordFaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFaster/Pods-WordFaster.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 		2CA8F92D1D74240700A58FD8 = {
 			isa = PBXGroup;
 			children = (
-				2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */,
 				2C68564E1D743BE7004E25CF /* AVFoundation.framework */,
 				2CA8F9381D74240700A58FD8 /* WordFaster */,
 				2CA8F9371D74240700A58FD8 /* Products */,
@@ -117,6 +116,7 @@
 		2CA8F9381D74240700A58FD8 /* WordFaster */ = {
 			isa = PBXGroup;
 			children = (
+				2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */,
 				2C8B06581D87D30500118D3E /* YF_Collect_UpLoad.png */,
 				2C8B064E1D87AA0000118D3E /* GCGiftCollectCell.h */,
 				2C8B064F1D87AA0000118D3E /* GCGiftCollectCell.m */,
