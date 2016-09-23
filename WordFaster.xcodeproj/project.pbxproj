@@ -26,8 +26,10 @@
 		2CA8F9661D742A0200A58FD8 /* IDRNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9651D742A0200A58FD8 /* IDRNetworkManager.m */; };
 		2CA8F9691D742A0F00A58FD8 /* StoreMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F9681D742A0F00A58FD8 /* StoreMgr.m */; };
 		2CA8F96C1D742A5600A58FD8 /* IDRLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */; };
+		2CACD69E1D8E97D10040887B /* WordCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CACD69D1D8E97D10040887B /* WordCardView.xib */; };
+		2CACD6A01D8E97E90040887B /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACD69F1D8E97E90040887B /* WordCardView.swift */; };
 		2CE8FEBB1D893B2300FED356 /* ReadMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */; };
-		F953B1794AD1E4D2B33332A3 /* libPods-WordFaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A99600EA75ED18B5C7C417D2 /* libPods-WordFaster.a */; };
+		AA9CB43EBD32B3BDE0ED8E4F /* Pods_WordFaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902A3039D8481B8221EAB840 /* Pods_WordFaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,9 +75,11 @@
 		2CA8F9681D742A0F00A58FD8 /* StoreMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMgr.m; sourceTree = "<group>"; };
 		2CA8F96A1D742A5600A58FD8 /* IDRLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRLogManager.h; sourceTree = "<group>"; };
 		2CA8F96B1D742A5600A58FD8 /* IDRLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRLogManager.m; sourceTree = "<group>"; };
+		2CACD69D1D8E97D10040887B /* WordCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCardView.xib; sourceTree = "<group>"; };
+		2CACD69F1D8E97E90040887B /* WordCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
 		2CE8FEB91D893B2300FED356 /* WordFaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WordFaster-Bridging-Header.h"; sourceTree = "<group>"; };
 		2CE8FEBA1D893B2300FED356 /* ReadMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadMgr.swift; path = ../ReadMgr.swift; sourceTree = "<group>"; };
-		A99600EA75ED18B5C7C417D2 /* libPods-WordFaster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordFaster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		902A3039D8481B8221EAB840 /* Pods_WordFaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordFaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DE4A610DDB886D47368C31 /* Pods-WordFaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFaster/Pods-WordFaster.release.xcconfig"; sourceTree = "<group>"; };
 		DF0B9815B6157B42A27D2183 /* Pods-WordFaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFaster/Pods-WordFaster.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C68564F1D743BE7004E25CF /* AVFoundation.framework in Frameworks */,
-				F953B1794AD1E4D2B33332A3 /* libPods-WordFaster.a in Frameworks */,
+				AA9CB43EBD32B3BDE0ED8E4F /* Pods_WordFaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +149,8 @@
 				2CA8F9611D74295900A58FD8 /* Word.h */,
 				2CA8F9621D74295900A58FD8 /* Word.m */,
 				2C8B065A1D880ACA00118D3E /* startPress.png */,
+				2CACD69D1D8E97D10040887B /* WordCardView.xib */,
+				2CACD69F1D8E97E90040887B /* WordCardView.swift */,
 			);
 			path = WordFaster;
 			sourceTree = "<group>";
@@ -160,7 +166,7 @@
 		BACD24412BA6E97A5C1998B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A99600EA75ED18B5C7C417D2 /* libPods-WordFaster.a */,
+				902A3039D8481B8221EAB840 /* Pods_WordFaster.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CA8F9491D74240700A58FD8 /* LaunchScreen.storyboard in Resources */,
+				2CACD69E1D8E97D10040887B /* WordCardView.xib in Resources */,
 				2C8B065B1D880ACA00118D3E /* startPress.png in Resources */,
 				2CA8F9461D74240700A58FD8 /* Assets.xcassets in Resources */,
 				2CA8F95B1D7427C100A58FD8 /* WordListVCTL.xib in Resources */,
@@ -276,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		931D8DBA61714A3B8B4CBAED /* [CP] Copy Pods Resources */ = {
@@ -307,6 +314,7 @@
 				2CA8F9411D74240700A58FD8 /* ViewController.m in Sources */,
 				2CA8F9631D74295900A58FD8 /* Word.m in Sources */,
 				2CA8F93E1D74240700A58FD8 /* AppDelegate.m in Sources */,
+				2CACD6A01D8E97E90040887B /* WordCardView.swift in Sources */,
 				2CA8F9601D74291A00A58FD8 /* WordCell.m in Sources */,
 				2CE8FEBB1D893B2300FED356 /* ReadMgr.swift in Sources */,
 				2CA8F96C1D742A5600A58FD8 /* IDRLogManager.m in Sources */,

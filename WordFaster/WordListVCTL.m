@@ -58,6 +58,8 @@
     title = _showUnKnown ? @"显示所有" : @"仅显示未知";
     
     [_ibBtnShowUnknown setTitle:title forState:UIControlStateNormal];
+    
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"%d", (int)_wordsDetail.count]];
 }
 
 - (BOOL)checkExist {
